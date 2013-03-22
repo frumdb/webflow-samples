@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<head>
+</head>
+
+<body>
+
+	<h:form>
+		<a4j:poll id="poll" interval="500" enabled="#{clockBean.enabled}"
+			reRender="clock" />
+	</h:form>
+	<h:form>
+		<!-- 		<h:panelGrid columns="2"> -->
+		<!-- 			<h:panelGrid columns="2"> -->
+		<!-- 				<a4j:commandButton value="Start Clock" -->
+		<!-- 					action="#{clockBean.startClock}" reRender="poll" /> -->
+		<!-- 				<a4j:commandButton value="Stop Clock" -->
+		<!-- 					action="#{clockBean.stopClock}" reRender="poll" /> -->
+		<!-- 			</h:panelGrid> -->
+		<!-- 			<h:outputText id="clock" value="#{clockBean.now}" /> -->
+		<!-- 		</h:panelGrid> -->
+
+
+
+		<h:panelGrid columns="2">
+
+			<a4j:commandButton id="btn"
+				value="#{clockBean.enabled?'Stop':'Start'} Polling"
+				reRender="poll, btn">
+				<!-- 				<f:setPropertyActionListener value="#{!clockBean.enabled}" -->
+				<!-- 					target="#{clockBean.enabled}" /> -->
+				<a4j:actionparam  value="#{!clockBean.enabled}"
+					assignTo="#{clockBean.enabled}" />
+			</a4j:commandButton>
+
+			<h:outputText id="clock" value="#{clockBean.now}" />
+		</h:panelGrid>
+
+
+
+	</h:form>
+
+</body>
+
+</html>

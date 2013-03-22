@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head></head>
+
+<body>
+	<h:form>
+		<h:inputText id="nameInput" value="#{userBean.name}">
+			<a4j:support event="onkeyup" reRender="echo"
+				onsubmit="alert('Submitting..')"
+				oncomplete="alert('Done updating..')"
+				onbeforedomupdate="alert('Before DOM update..')" />
+		</h:inputText>
+		<h:outputText id="echo" value="Echo: #{userBean.name}"/>
+	</h:form>
+
+	<hr />
+
+	<h:form>
+		<a4j:commandButton value="Submit" reRender="out" data="#{userBean.stuff}"
+			oncomplete="alert(data)" />
+		
+	</h:form>
+
+
+</body>
+</html>

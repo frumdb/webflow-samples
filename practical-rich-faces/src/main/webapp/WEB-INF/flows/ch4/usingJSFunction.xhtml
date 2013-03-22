@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<script>
+function displayDate() {
+// 	document.getElementById("demo").innerHTML=Date();
+	updateStyle('#CDEB8B', '16');
+}
+
+</script>
+
+</head>
+
+<body>
+
+	<p id="demo">This is a paragraph.</p>
+
+	<button type="button" onclick="displayDate()">Display Date</button>
+
+	<h:form>
+		<rich:panel style="width:500px">
+			<f:facet name="header">Using a4j:jsFunction</f:facet>
+			<table width="400">
+				<tbody>
+					<tr>
+						<td onmouseover="updateStyle('#CDEB8B', '16')"
+							onmouseout=" updateStyle ('transparent',14)">Mint, 14px</td>
+					</tr>
+					<tr>
+						<td onmouseover=" updateStyle ('#FFFF88', 20)"
+							onmouseout=" updateStyle ('transparent',14)">Yellow, 20px</td>
+					</tr>
+					<tr>
+						<td onmouseover=" updateStyle ('#6BBA70', 24)"
+							onmouseout=" updateStyle ('transparent',14)">Green, 24px</td>
+					</tr>
+					<tr>
+						<td rowspan="3">
+						<h:panelGrid id="showname">
+								<h:outputText value="I love MTV"
+									style="font-size:#{jsFunctionBean.size}px;background-color:#{jsFunctionBean.name}" />
+						</h:panelGrid>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</rich:panel>
+		<a4j:jsFunction name="updateStyle" reRender="showname">
+			<a4j:actionparam name="param1" assignTo="#{jsFunctionBean.name}" />
+			<a4j:actionparam name="param2" assignTo="#{jsFunctionBean.size}" />
+		</a4j:jsFunction>
+	</h:form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head></head>
+
+<body>
+<h:form>
+	<rich:panel style="width:500px">
+		<f:facet name="header">Using a4j:status</f:facet>
+		<h:panelGrid columns="2">
+			<h:outputText value="Enter state:" />
+			<h:panelGroup>
+				<h:inputText value="#{stateView.input}">
+					<a4j:support event="onkeyup" reRender="box"
+						action="#{stateView.suggest}" status="stateStatus" />
+				</h:inputText>
+				<rich:spacer width="10px" />
+				<a4j:status id="stateStatus" startText="Working..."
+					startStyle="background-color:#ffA500" />
+				<a4j:status id="stateStatus">
+					<f:facet name="start">
+						<h:graphicImage value="/resources/images/LoadingAnimation.gif"/>
+					</f:facet>
+				</a4j:status>
+					
+			</h:panelGroup>
+		</h:panelGrid>
+	</rich:panel>
+	</h:form>
+<h:dataTable id="box" value="#{stateView.statesList}" var="state">
+	<h:column>
+		<h:graphicImage value="#{state.flagImage}" />
+	</h:column>
+	<h:column>
+		<h:outputText value="#{state.name}" />
+	</h:column>
+	<h:column>
+		<h:outputText value="#{state.capital}" />
+	</h:column>
+</h:dataTable>
+
+<!-- 	<h:form> -->
+<!-- 		<rich:panel> -->
+<!-- 			<a4j:region> -->
+<!-- 				<f:facet name="header">Main</f:facet> -->
+<!-- 				<a4j:status startText="Working..." /> -->
+<!-- 				<br /> -->
+<!-- 				<a4j:commandButton value="Ajax Request #1" /> -->
+<!-- 				<rich:panel> -->
+<!-- 					<f:facet name="header">Internal</f:facet> -->
+<!-- 					<a4j:region> -->
+<!-- 						<a4j:commandButton value="Ajax Request #2" /> -->
+<!-- 						<a4j:status startText="I'm so tired of working..." /> -->
+<!-- 					</a4j:region> -->
+<!-- 				</rich:panel> -->
+<!-- 			</a4j:region> -->
+<!-- 		</rich:panel> -->
+<!-- 		<rich:panel> -->
+<!-- 			<f:facet name="header"> -->
+<!-- 				Outside -->
+<!-- 			</f:facet> -->
+<!-- 			<a4j:region id="outside"> -->
+<!-- 				<a4j:commandButton value="Ajax Request #3" /> -->
+<!-- 				<a4j:commandButton value="Ajax Request #4" /> -->
+<!-- 			</a4j:region> -->
+<!-- 		</rich:panel> -->
+<!-- 		<a4j:status for="outside" startText="Working..." -->
+<!-- 			startStyle="background-color: #ffA500; -->
+<!-- 				font-weight:bold; -->
+<!-- 				position: absolute; -->
+<!-- 				left: 520px; -->
+<!-- 				top: 1px; -->
+<!-- 				width: 100px;" /> -->
+<!-- 	</h:form> -->
+
+
+
+
+
+
+
+</body>
+</html>

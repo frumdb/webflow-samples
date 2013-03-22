@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+	
+
+	<var name="userBean" class="com.max.katz.UserBean"/>
+<!--  	<var name="channelView" class="chapter4.channels.ChannelViewBean"/>  -->
+<!--  	<var name="channelConverter" class="chapter4.channels.ChannelConverter"/>  -->
+	
+<!-- 	<view-state id="usingActionParam"> -->
+<!-- 		<transition on="thanks" to="thanks"/> -->
+<!-- 	</view-state> -->
+
+<!-- 	<view-state id="thanks"> -->
+<!-- 	</view-state> -->
+
+
+<!-- 	<var name="repeatBean" class="chapter4.RepeatBeanSerial"/> -->
+<!-- 	<view-state id="usingRepeat"> -->
+<!-- 	</view-state> -->
+
+
+<!-- 	<var name="stateView" class="chapter4.states.StateView"/> -->
+
+
+<!-- 		<on-start> -->
+<!-- 			<set name="flowScope.stateView" value="new chapter4.states.StateView()"/> -->
+<!-- 			<evaluate expression="new chapter4.states.StateView()" result="flowScope.stateView"/> -->
+<!-- 		</on-start> -->
+
+<!-- <var name="stateView" class="chapter4.states.StateView"/> -->
+<!-- 	<view-state id="statesWithStatus"> -->
+<!-- 		<on-entry> -->
+<!-- 			<set name="flashScope.stateView" value="new chapter4.states.StateView()"/> -->
+<!-- 		</on-entry> -->
+		
+<!-- 			<var name="requestScope.stateView" class="chapter4.states.StateView"/> -->
+		
+<!-- 	</view-state> -->
+
+
+
+<!-- 	<var name="wizardRegistrationBean" class="chapter4.wizard.RegistrationBean"/> -->
+<!-- 	<view-state  id="wizard-main" view="wizard/wizard-main.xhtml"> -->
+<!-- 		<on-entry> -->
+<!-- 			<set name="flashScope.wizardRegistrationBean" value="new chapter4.wizard.RegistrationBean()"/> -->
+<!-- 		</on-entry> -->
+<!-- 		<transition on="forward"/> -->
+<!-- 		<transition on="back"/> -->
+<!-- 		<transition on="done" to="after-wizard-done"/> -->
+<!-- 	</view-state> -->
+<!-- 	<view-state id="after-wizard-done"> -->
+<!-- 	</view-state> -->
+
+
+<!-- 	<view-state id="usingJSFunction"> -->
+<!-- 		<on-entry> -->
+<!-- 			<set name="viewScope.jsFunctionBean" value="new chapter4.JSFunctionBean()"/> -->
+<!-- 		</on-entry> -->
+<!-- 	</view-state> -->
+	
+	<view-state id="usingAjaxListener">
+		<on-entry>
+			<set name="viewScope.ajaxBean" value="new chapter4.AjaxBean()"/>
+		</on-entry>
+	</view-state>	
+	
+
+</flow>

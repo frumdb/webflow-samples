@@ -1,0 +1,29 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	<h:form>
+		<h:panelGrid columons="2">
+			<rich:inplaceSelect value="#{bean.drink}" id="drinkList"
+				defaultLabel="Select drink" showControls="true">
+				<f:selectItem itemValue="1" itemLabel="Red wine" />
+				<f:selectItem itemValue="2" itemLabel="White wine" />
+				<f:selectItem itemValue="3" itemLabel="Beer" />
+				<f:selectItem itemValue="4" itemLabel="Vodka" />
+				<f:selectItem itemValue="5" itemLabel="Tequila" />
+				<f:selectItem itemValue="6" itemLabel="Sangria" />
+				<f:facet name="controls">
+					<button onclick="#{rich:component('drinkList')}.save();"
+						type="button">Save</button>
+					<button onclick="#{rich:component('drinkList')}.cancel();"
+						type="button">Cancel</button>
+				</f:facet>
+			</rich:inplaceSelect>
+			<a4j:commandButton value="Submit" />
+		</h:panelGrid>
+
+	</h:form>
+</h:form>

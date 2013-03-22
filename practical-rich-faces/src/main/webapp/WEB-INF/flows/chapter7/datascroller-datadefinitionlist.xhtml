@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head></head>
+
+<body>
+	<h:form>
+		<rich:panel>
+			<f:facet name="header">
+			Using rich:datascroller
+			</f:facet>
+			<rich:dataDefinitionList id="statesTable"
+				value="#{statesBean.statesList}" var="state" rows="5">
+				<f:facet name="term">#{state.name}</f:facet>
+				<h:graphicImage value="#{state.flagImage}" />
+				#{state.capital}
+			</rich:dataDefinitionList>
+			<h:panelGrid style="text-align: left">
+				<rich:datascroller for="statesTable" maxPages="4"
+					selectedStyle="font-weight:bold" />
+			</h:panelGrid>
+		</rich:panel>
+	</h:form>
+</body>
+</html>

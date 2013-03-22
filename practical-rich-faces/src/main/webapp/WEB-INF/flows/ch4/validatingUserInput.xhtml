@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head></head>
+
+<h:form>
+	<h:outputText value="RichFaces Pub" />
+	<h:panelGrid columns="2">
+
+		<h:outputText value="Age:" />
+		<h:panelGroup>
+			<a4j:region renderRegionOnly="true">
+				<h:inputText id="age" value="#{userBean.age}" size="4"
+					required="true" requiredMessage="Age required"
+					validatorMessage="You must be 21 or older to drink">
+					<f:validateLongRange minimum="21" />
+					<a4j:support event="onblur" bypassUpdates="true"/>
+				</h:inputText>
+				<rich:message for="age" />
+			</a4j:region>
+		</h:panelGroup>
+
+
+		<h:outputText value="Name:" />
+		<h:panelGroup>
+			<a4j:region renderRegionOnly="true">
+				<h:inputText id="name" value="#{userBean.name}" required="true"
+					requiredMessage="Name is required"
+					validatorMessage="Name is too short">
+					<f:validateLength minimum="3" />
+					<a4j:support event="onblur" />
+				</h:inputText>
+				<rich:message for="name" />
+			</a4j:region>
+		</h:panelGroup>
+
+	</h:panelGrid>
+	<h:commandButton action="enterpub" value="Let me in!"></h:commandButton>
+</h:form>
+
+
+
+
+
+
+<!-- <body> -->
+<!-- <h:form> -->
+<!-- 	<h:outputText value="RichFaces Pub" /> -->
+<!-- 	<h:panelGrid columns="2"> -->
+<!-- 		<h:outputText value="Age:" /> -->
+<!-- 		<h:panelGroup> -->
+<!-- 			<a4j:region renderRegionOnly="true"> -->
+<!-- 				<h:inputText id="age" value="#{userBean.age}" size="4" -->
+<!-- 					required="true" requiredMessage="Age required" -->
+<!-- 					validatorMessage="You must be 21 or older to drink"> -->
+<!-- 					<f:validateLongRange minimum="21" /> -->
+<!-- 					<a4j:support event="onblur" bypassUpdates="true" /> -->
+<!-- 				</h:inputText> -->
+<!-- 				<rich:message for="age" /> -->
+<!-- 			</a4j:region> -->
+<!-- 		</h:panelGroup> -->
+<!-- 		<h:outputText value="Name:" /> -->
+<!-- 		<h:panelGroup> -->
+<!-- 			<a4j:region renderRegionOnly="true"> -->
+<!-- 				<h:inputText id="name" value="#{userBean.name}" required="true" -->
+<!-- 					requiredMessage="Name is required" -->
+<!-- 					validatorMessage="Name is too short"> -->
+<!-- 					<f:validateLength minimum="3" /> -->
+<!-- 					<a4j:support event="onblur" bypassUpdates="true" /> -->
+<!-- 				</h:inputText> -->
+<!-- 				<rich:message for="name" /> -->
+<!-- 			</a4j:region> -->
+<!-- 		</h:panelGroup> -->
+<!-- 	</h:panelGrid> -->
+<!-- 	<h:commandButton action="enterpub" value="Let me in!"></h:commandButton> -->
+<!-- </h:form> -->
+
+
+
+<!-- </body> -->
+</html>

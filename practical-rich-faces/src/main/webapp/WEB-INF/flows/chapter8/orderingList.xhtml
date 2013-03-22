@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head></head>
+
+<body>
+
+	<h:panelGrid columns="2">
+		<h:form>
+			<rich:pickList value="#{pickList.fruitsList}"
+				copyAllControlLabel="Add All" copyControlLabel="Add"
+				removeControlLabel="Delete" removeAllControlLabel="Delete All"
+				showButtonsLabel="false" switchByClick="true">
+				<a4j:support event="onlistchanged" reRender="salad" />
+				<f:selectItem itemValue="apple" itemLabel="Apple" />
+				<f:selectItem itemValue="banana" itemLabel="Banana" />
+				<f:selectItem itemValue="pear" itemLabel="Pear" />
+				<f:selectItem itemValue="orange" itemLabel="Orange" />
+				<f:selectItem itemValue="grapes" itemLabel="Grapes" />
+				<f:selectItem itemValue="watermelon" itemLabel="Watermelon" />
+				<f:selectItem itemValue="kiwi" itemLabel="Kiwi" />
+				<f:selectItem itemValue="blackberries" itemLabel="Blackberries" />
+				<f:selectItem itemValue="strawberries" itemLabel="Strawberries" />
+			</rich:pickList>
+		</h:form>
+	
+	<rich:panel id="salad" style="height:130px">
+		<f:facet name="header">
+			Fruit salad
+		</f:facet>
+		<a4j:repeat value="#{pickList.fruitsList}" var="fruit">
+			#{fruit}<br/>
+		</a4j:repeat>
+	</rich:panel>
+	
+	</h:panelGrid>
+	
+</body>
+</html>

@@ -1,0 +1,24 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	<h:form>
+<!-- 		<rich:comboBox value="#{bean.drink}" suggestionValues="#{bean.states}"> -->
+			<rich:comboBox 
+				value="#{bean.drink}" 
+				defaultLabel="Select state ..."
+				directInputSuggestions="true">
+				
+			<f:selectItems value="#{bean.states}"/>
+<!-- 			<f:selectItem itemValue="Red Wine" /> -->
+<!-- 			<f:selectItem itemValue="White wine" /> -->
+<!-- 			<f:selectItem itemValue="Beer" /> -->
+<!-- 			<f:selectItem itemValue="Vodka" /> -->
+<!-- 			<f:selectItem itemValue="Tequila" /> -->
+<!-- 			<f:selectItem itemValue="Sangria" /> -->
+		</rich:comboBox>
+	</h:form>
+</h:form>

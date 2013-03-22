@@ -1,0 +1,22 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	<h:panelGrid columns="2">
+		<h:outputText value="First name:" />
+		<h:outputText value="#{wizardRegistrationBean.firstName}" />
+		<h:outputText value="Last name:" />
+		<h:outputText value="#{wizardRegistrationBean.lastName}" />
+		<h:outputText value="Email:" />
+		<h:outputText value="#{wizardRegistrationBean.email}" />
+	</h:panelGrid>
+	<a4j:commandButton value="Back"
+		actionListener="#{wizardRegistrationBean.prevStep}" action="back"
+		reRender="step" />
+	<a4j:commandButton value="Done"
+		action="done"
+	/>
+	
+</h:form>

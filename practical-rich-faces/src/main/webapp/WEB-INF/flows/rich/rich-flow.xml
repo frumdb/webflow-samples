@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+	
+
+	<var name="testBean" class="action.TestBean"/>
+	
+	<view-state id="listenerTest">
+		<transition on="populateHotels">
+			<evaluate result="testBean.hotels" 
+			expression="bookingService.findHotelsByState(testBean.state)"/>
+		</transition>
+	</view-state>
+
+
+	
+
+</flow>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head></head>
+
+<body>
+
+	<rich:modalPanel id="wizard" width="350" height="150">
+		<f:facet name="header">
+		Wizard
+		</f:facet>
+		<f:facet name="controls">
+			<h:graphicImage value="close.png" style="cursor:pointer"
+				onclick="#{rich:component('wizard')}.hide()" />
+		</f:facet>
+		<h:panelGrid id="include">
+			<a4j:include viewId="#{modalPanelBean.view}" />
+		</h:panelGrid>
+
+	</rich:modalPanel>
+	<h:panelGrid id="input">
+		<h:outputText value="Name: #{modalPanelBean.name}" />
+		<h:outputText value="Email: #{modalPanelBean.email}" />
+		<h:outputLink value="#" id="link">
+		Launch wizard
+		<rich:componentControl for="wizard" attachTo="link" operation="show"
+				event="onclick" />
+		</h:outputLink>
+	</h:panelGrid>
+
+
+
+
+</body>
+</html>
