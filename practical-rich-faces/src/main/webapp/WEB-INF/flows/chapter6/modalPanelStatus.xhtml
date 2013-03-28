@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<head>
+</head>
+
+<body>
+
+	<h:form>
+		<a4j:commandButton actionListener="#{bean.calculate}"
+			value="Calculate" />
+	</h:form>
+	<rich:modalPanel id="mp" style="text-align:center">
+		<h:outputText value="Please wait..."
+			style="font-weight:bold;font-size:large" />
+	</rich:modalPanel>
+	<a4j:status id="actionStatus"
+		onstart="#{rich:component('mp')}.show('',{height:'80', width:'150'})"
+		onstop="#{rich:component('mp')}.hide()" />
+
+	<input type="text" />
+
+</body>
+
+</html>

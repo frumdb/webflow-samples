@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<head>
+</head>
+
+<body>
+<h:form>
+	<rich:panel style="width:350px">
+		<f:facet name="header">
+		Using rich:toolTip
+		</f:facet>
+		<h:outputText id="nyc" value="New York City"
+			style="font-size: xx-large;" />
+		<rich:toolTip 
+			mode="ajax"
+			for="nyc"
+			followMouse="true"
+			showEvent="onclick"
+			hideEvent="onmouseout">
+			<f:facet name="defaultContent">
+			Loading...
+			</f:facet>
+			<h:panelGrid style="width:200px">
+				<h:outputText value="#{toolTipBean.message}"/>
+				<h:outputText value="#{toolTipBean.now}"
+					style="font-weight:bold"/>
+			</h:panelGrid>
+		</rich:toolTip>
+	</rich:panel>
+</h:form>
+
+
+	<input type="text" />
+
+</body>
+
+</html>

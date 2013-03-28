@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<head>
+</head>
+
+<body>
+
+	<h:form>
+		<rich:panel>
+
+
+			
+				<h:panelGrid columns="3">
+					<h:outputText value="Age:" />
+					<h:inputText id="ageInput" value="#{userBean.age}" size="4" />
+					<a4j:commandLink value="Enter Age" reRender="age" />
+				</h:panelGrid>
+				<h:panelGrid>
+					<h:outputText id="age" value="Your age: #{userBean.age}" />
+				</h:panelGrid>
+			
+			
+
+				<h:panelGrid>
+					<h:selectOneListbox value="#{userBean.color}">
+						<f:selectItem itemLabel="Red" itemValue="Red" />
+						<f:selectItem itemLabel="Blue" itemValue="Blue" />
+						<f:selectItem itemLabel="Green" itemValue="Green" />
+						<f:selectItem itemLabel="Yellow" itemValue="Yellow" />
+						<a4j:support event="onclick" reRender="col" ajaxSingle="true" process="ageInput"/>
+						<a4j:support event="onkeydown" reRender="col" />
+						<a4j:support event="onkeyup" reRender="col" />
+					</h:selectOneListbox>
+					<h:outputText id="col" value="Color: #{userBean.color}" />
+				</h:panelGrid>
+
+			<a4j:commandButton value="Submit" action="#{userBean.save}" />
+
+
+		</rich:panel>
+	</h:form>
+	<input type="text" />
+
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<head>
+</head>
+
+<body>
+
+	<h:form>
+		<rich:panel>
+
+
+			<a4j:commandButton value="Submit" ajaxSingle="true"
+				action="#{userProfile.action}" process="id1, id3" />
+			<h:inputText id="id1" value="#{userProfile.id1}" />
+			<h:inputText id="id2" value="#{userProfile.id2}" />
+			<h:inputText id="id3" value="#{userProfile.id3}" />
+			<h:outputText id="result" value="#{userProfile.result}"/>
+
+		</rich:panel>
+	</h:form>
+	<input type="text" />
+
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<head>
+</head>
+
+<body>
+	<h:form>
+		<rich:dataTable id="statesTable" value="#{statesBean.statesList}"
+			var="state">
+			<h:column>
+				<f:facet name="header">State</f:facet>
+				<h:outputText value="#{state.name}" />
+				<rich:toolTip mode="client">
+					<h:panelGrid>
+						<h:outputText value="#{state.name}" style="font-weight:bold" />
+						<h:outputText value="#{state.capital}" />
+						<h:graphicImage value="#{state.flagImage}" />
+					</h:panelGrid>
+				</rich:toolTip>
+			</h:column>
+		</rich:dataTable>
+	</h:form>
+
+
+	<input type="text" />
+
+</body>
+
+</html>

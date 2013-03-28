@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head></head>
+
+<body>
+<h:form>
+	<h:outputText value="Using a4j:actionparam" />
+	<table>
+		<a4j:repeat value="#{channelView.channels}" var="channel">
+			<tr>
+				<td><h:commandLink value="Select" action="thanks">
+					<a4j:actionparam name="channel" value="#{channel}"
+						assignTo="#{channelView.selectedChannel}"
+						converter="#{channelConverter}"
+						 />
+				</h:commandLink></td>
+				<td>#{channel.name}</td>
+			</tr>
+		</a4j:repeat>
+	</table>
+</h:form>
+<hr/>
+<h:form>
+    <h:outputText value="Using f:setPropertyActionListener" />
+	<table border="0" cellspacing="1" cellpadding="4">
+		<a4j:repeat value="#{channelView.channels}" var="channel">
+			<tr>
+				<td><h:commandLink value="Select" action="thanks">
+					<f:setPropertyActionListener value="#{channel}"
+						target="#{channelView.selectedChannel}" />
+				</h:commandLink></td>
+				<td>#{channel.name}</td>
+			</tr>
+		</a4j:repeat>
+	</table>
+
+</h:form>
+
+</body>
+</html>

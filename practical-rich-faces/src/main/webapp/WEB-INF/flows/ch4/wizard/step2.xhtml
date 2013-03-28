@@ -1,0 +1,18 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+	<h:panelGrid columns="2">
+		<h:outputText value="Email:" />
+		<h:inputText value="#{wizardRegistrationBean.email}" />
+	</h:panelGrid>
+	<a4j:commandButton value="Back"
+		actionListener="#{wizardRegistrationBean.prevStep}" action="back"
+		reRender="step" />
+	<rich:spacer width="5px" />
+	<a4j:commandButton value="Continue"
+		actionListener="#{wizardRegistrationBean.nextStep}" action="forward"
+		reRender="step" />
+</h:form>

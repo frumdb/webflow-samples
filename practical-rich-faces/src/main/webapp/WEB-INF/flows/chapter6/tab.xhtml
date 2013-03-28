@@ -1,0 +1,43 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<!-- 	<a4j:keepAlive beanName="cityTabBean"/> -->
+	<h:form>
+		<rich:panel style="width:500px">
+			<h:selectOneRadio value="#{cityTabBean.city}">
+				<f:selectItem itemLabel="New York" itemValue="nyc" />
+				<f:selectItem itemLabel="San Fransisco" itemValue="sf" />
+				<f:selectItem itemLabel="Los Angeles" itemValue="la" />
+				<a4j:support event="onclick"
+					reRender="cityTabs"/>
+			</h:selectOneRadio>
+		</rich:panel>
+	</h:form>
+
+
+	<rich:panel style="width:500px">
+		<f:facet name="header">rich:tabPanel and rich:tab</f:facet>
+		<rich:tabPanel id="cityTabs" switchType="ajax"
+			selectedTab="#{cityTabBean.city}">
+			<rich:tab label="New York City" id="nyc">
+				Statue of Liberty
+				<h:form>
+					<h:inputText value="#{cityTabBean.nycInput}"/>
+				</h:form>
+			</rich:tab>
+			<rich:tab label="San Francisco" id="sf">
+				Golden Gate Bridge
+				<h:form>
+					<h:inputText value="#{cityTabBean.sfInput}"/>
+				</h:form>
+				</rich:tab>
+			<rich:tab label="Los Angeles" disabled="true" id="la">
+				Hollywood
+				</rich:tab>
+		</rich:tabPanel>
+	</rich:panel>
+</h:form>

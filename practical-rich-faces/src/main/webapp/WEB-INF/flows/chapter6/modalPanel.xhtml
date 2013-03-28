@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<head>
+</head>
+
+<body>
+
+
+<!-- 	<h:form> -->
+<!-- 		<a4j:commandLink value="Open" -->
+<!-- 			onclick="#{rich:component('modalPanel')}.show()" reRender="time" /> -->
+<!-- 	</h:form> -->
+<!-- 		<rich:modalPanel id="modalPanel"> -->
+<!-- 			<f:facet name="header"> -->
+<!-- 		Modal panel -->
+<!-- 		</f:facet> -->
+<!-- 			<f:facet name="controls"> -->
+<!-- 				<h:graphicImage value="/modalPanel/close.png" style="cursor:pointer" -->
+<!-- 					onclick="#{rich:component('modalPanel')}.hide()" /> -->
+<!-- 			</f:facet> -->
+<!-- 			<h:panelGrid> -->
+<!-- 				<h:outputText value="Cool, I just opened a modal panel!" /> -->
+<!-- 				<h:outputText id="time" value="Time: #{dateModalPanelBean.now}" /> -->
+<!-- 			</h:panelGrid> -->
+<!-- 			<a href="#" onclick="#{rich:component('modalPanel')}.hide()">Hide</a> -->
+<!-- 		</rich:modalPanel> -->
+	
+
+
+
+	<!-- 	<h:form> -->
+
+<!-- 		<h:panelGrid columns="2" border="1"> -->
+<!-- 			<a4j:commandButton value="Submit" reRender="date3" /> -->
+<!-- 			<h:outputText id="date3" value="#{dateModalPanelBean.now}" /> -->
+<!-- 		</h:panelGrid> -->
+
+<!-- 	</h:form> -->
+
+	<h:form>
+		<a4j:commandLink value="Show"
+			onclick="Richfaces.showModalPanel('thisModalPanel', {top:'100px',left:'100px',height:'400'});"
+			reRender="time"/>
+	</h:form>
+		<rich:modalPanel id="thisModalPanel">
+			<f:facet name="header">
+				Modal Panel
+			</f:facet>
+			<f:facet name="controls">
+				<h:graphicImage value="close.png" style="cursor:pointer"
+					onclick="Richfaces.hideModalPanel('thisModalPanel')"/>
+			</f:facet>
+			<h:panelGrid>
+				<h:outputText value="Cool, I just opened a modal panel!" />
+				<h:outputText id="time" value="Time: #{dateModalPanelBean.now}"/>
+			</h:panelGrid>
+			<a href="#" onclick="#{rich:component('thisModalPanel')}.hide()">Hide</a>
+			<input type="text"/>
+		</rich:modalPanel>
+
+	
+
+<!-- 	<input type="text" /> -->
+
+</body>
+
+</html>

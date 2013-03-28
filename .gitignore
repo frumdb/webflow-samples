@@ -1,0 +1,40 @@
+#######################################################
+# WARNING! WARNING! WARNING! WARNING! WARNING! WARNING!
+# Rules in this file are shared with everybody!
+# Add your local rules to .git/info/exclude
+# see https://help.github.com/articles/ignoring-files
+#######################################################
+
+# Misc #
+########
+DBCC/.*
+DBCC/*/\.*
+DBCC/serverConfigs/dev/*2*
+DBCC/*/*/*/META-INF/
+DBCC/regression/bin/
+
+# Compiler generated files #
+############################
+MANIFEST.MF
+target/
+
+# Eclipse project files #
+#########################
+.project
+.classpath
+.settings/
+
+# JRebel configuration
+rebel.xml
+rebel.xml.bug
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Selenium generated files #
+############################
+chromedriver.log

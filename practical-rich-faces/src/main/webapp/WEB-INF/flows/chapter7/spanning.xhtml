@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head></head>
+
+<body>
+
+<rich:panel header="Column spanning">
+	<rich:dataTable value="#{statesBean.statesList}" var="state" border="1">
+		<rich:column colspan="2">
+			<h:graphicImage value="#{state.flagImage}" />
+		</rich:column>
+		<rich:columnGroup>
+			<rich:column>
+			#{state.name}
+			</rich:column>
+			<rich:column>
+			#{state.capital}
+			</rich:column>
+		</rich:columnGroup>
+	</rich:dataTable>
+</rich:panel>
+
+<rich:panel header="Row spanning">
+	<rich:dataTable value="#{statesBean.statesList}" var="state" border="1">
+		<rich:column rowspan="2">
+			<h:graphicImage value="#{state.flagImage}" />
+		</rich:column>
+		<rich:column>
+			#{state.name}
+		</rich:column>
+		<rich:column breakBefore="true">
+			#{state.capital}
+		</rich:column>
+	</rich:dataTable>
+</rich:panel>
+
+</body>
+</html>

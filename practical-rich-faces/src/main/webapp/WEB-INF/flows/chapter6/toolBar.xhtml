@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<head>
+</head>
+
+<body>
+
+	<h:form>
+		<rich:panel style="width:650px">
+			<f:facet name="header">
+			Using rich:toolBar
+			</f:facet>
+			<rich:toolBar >
+				<f:facet name="itemSeparator">
+					<h:outputText value="*" style="FONT-SIZE:large;"/>
+				</f:facet>
+				<h:graphicImage value="/images/states/flag_california.gif"
+					width="24" height="21" >
+					<a4j:support id="sf" event="onclick" actionListener="#{toolBarBean.cityListener}" />
+				</h:graphicImage>
+				<rich:spacer width="150"/>
+				<h:graphicImage value="/images/states/flag_newyork.gif" width="24"
+					height="21" >
+					<a4j:support id="nyc" event="onclick" actionListener="#{toolBarBean.cityListener}" />
+				</h:graphicImage>
+				<h:graphicImage value="/images/states/flag_florida.gif" width="24"
+					height="21" />
+<!-- 				<a4j:commandLink id="nyc" value="New York City" -->
+<!-- 					actionListener="#{toolBarBean.cityListener}" /> -->
+<!-- 				<rich:toolBarGroup locatoin="right"> -->
+<!-- 					<a4j:commandLink id="sf" value="San Francisco" -->
+<!-- 						actionListener="#{toolBarBean.cityListener}" /> -->
+<!-- 					<a4j:commandLink id="la" value="Los Angeles" -->
+<!-- 						actionListener="#{toolBarBean.cityListener}" /> -->
+<!-- 				</rich:toolBarGroup> -->
+			</rich:toolBar>
+			<rich:panel>
+				<a4j:outputPanel ajaxRendered="true">
+					<h:panelGrid rendered="#{toolBarBean.nyc}">
+					New York City is the most populous city in the United States,
+					with its metropolitan area ranking among the
+					largest urban areas in the world.
+					For more than a century, it has been one of the world's major centers
+					of commerce and finance. New York City is rated as an alpha world
+					city for its global influences in media, politics, education,
+					entertainment, arts and fashion. The city is also a major center
+					for foreign affairs, hosting the headquarters of the United Nations.
+					</h:panelGrid>
+					<h:panelGrid rendered="#{toolBarBean.sf}">
+					San Francisco is the fourth most populous city in California and the
+					14th most populous city in the United States.
+					San Francisco is a popular international tourist destination renowned
+					for its steep rolling hills, an eclectic mix of Victorian and modern
+					architecture, and famous landmarks, including the Golden Gate Bridge,
+					Alcatraz Island, the cable cars, Coit Tower, and Chinatown.
+					</h:panelGrid>
+					<h:panelGrid rendered="#{toolBarBean.la}">
+					Los Angeles is the largest city in the state of California and the
+					second-largest in the United States. Los Angeles is one of the
+					world's centers of culture, technology,
+					media, business, and international trade.
+					</h:panelGrid>
+				</a4j:outputPanel>
+			</rich:panel>
+		</rich:panel>
+
+	</h:form>
+
+	<rich:separator height="2" lineType="dotted" />
+	<br />
+	<rich:separator height="2" lineType="dashed" />
+	<br />
+	<rich:separator height="4" lineType="double" />
+	<br />
+	<rich:separator height="2" lineType="solid" />
+	<br />
+
+	<input type="text" />
+
+</body>
+
+</html>

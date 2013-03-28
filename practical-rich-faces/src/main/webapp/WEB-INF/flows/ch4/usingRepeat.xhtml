@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head></head>
+
+<body>
+<a4j:keepAlive beanName="repeatBean"/>
+<rich:panel style="width:150px">
+	<f:facet name="header">
+		<h:outputText value="Using a4j:repeat" />
+	</f:facet>
+	<ul>
+		<a4j:repeat value="#{repeatBean.list}" var="month">
+			<li><h:outputText value="#{month}" /></li>
+		</a4j:repeat>
+	</ul>
+</rich:panel>
+<hr />
+<rich:panel style="width:150px">
+	<f:facet name="header">
+		<h:outputText value="Using a4j:repeat" />
+	</f:facet>
+	<ol>
+		<a4j:repeat value="#{repeatBean.list}" var="month">
+			<li><h:outputText value="#{month}" /></li>
+		</a4j:repeat>
+	</ol>
+</rich:panel>
+<hr />
+<rich:panel style="width:150px">
+	<f:facet name="header">
+		<h:outputText value="Using a4j:repeat" />
+	</f:facet>
+	<table border="1">
+		<tbody>
+			<a4j:repeat value="#{repeatBean.list}" var="month">
+				<tr>
+					<td>#{month}</td>
+				</tr>
+			</a4j:repeat>
+		</tbody>
+	</table>
+</rich:panel>
+
+<hr />
+<rich:panel>
+	<f:facet name="header">
+		<h:outputText value="Using a4j:repeat" />
+	</f:facet>
+	<a4j:repeat value="#{repeatBean.list}" var="month" rowKeyVar="i">
+		<h:outputText value="#{month}" />
+		<h:outputText value=", " rendered="#{i+1 lt 12}" />
+	</a4j:repeat>
+</rich:panel>
+
+
+<hr />
+
+	<h:form>
+		<rich:panel style="width:150px">
+			<f:facet name="header">
+				<h:outputText value="Using a4j:repeat" />
+			</f:facet>
+			<table>
+				<a4j:repeat value="#{repeatBean.numbers}" var="rec"
+					rowKeyVar="rowIndex" ajaxKeys="#{repeatBean.rowsToUpdate}">
+					<tr>
+						<td width="20px"><h:outputText id="num" value="#{rec.number}" />
+						</td>
+
+						<td><a4j:commandLink value="-" reRender="num"
+								actionListener="#{repeatBean.decrease}">
+								<a4j:actionparam name="rowIndex" value="#{rowIndex}"
+									assignTo="#{repeatBean.updatedRow}" />
+							</a4j:commandLink> 
+							/ 
+							<a4j:commandLink value="+" reRender="num"
+								action="#{repeatBean.increaseAction}"
+								>
+								<a4j:actionparam name="rowIndex" value="#{rowIndex}"
+									assignTo="#{repeatBean.updatedRow}" />
+							</a4j:commandLink>
+						</td>
+					</tr>
+				</a4j:repeat>
+			</table>
+		</rich:panel>
+	</h:form>
+
+</body>
+</html>

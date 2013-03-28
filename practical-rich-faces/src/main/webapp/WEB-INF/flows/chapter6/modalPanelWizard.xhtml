@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+<head>
+</head>
+
+<body>
+
+	<rich:modalPanel id="modalPanel" width="350" height="150">
+		<f:facet name="header">
+		Modal panel
+		</f:facet>
+		<f:facet name="controls">
+			<h:graphicImage value="/modalPanel/close.png" style="cursor:pointer"
+				onclick="#{rich:component('modalPanel')}.hide()" />
+		</f:facet>
+		<h:form>
+			<h:panelGrid>
+				<h:outputText value="Name:" />
+				<h:inputText value="#{nameModalPanelBean.name}" />
+				<h:panelGroup>
+<!-- 					<a4j:commandButton value="Close" id="close" -->
+<!-- 						bypassUpdates="true" -->
+<!-- 						oncomplete="Richfaces.hideModalPanel('modalPanel')" /> -->
+					<button type="button"  id="close"
+						onclick="Richfaces.hideModalPanel('modalPanel')">Close</button>
+					<a4j:commandButton value="Save and Close" id="save"
+						reRender="input"
+						oncomplete="Richfaces.hideModalPanel('modalPanel')" />
+				</h:panelGroup>
+			</h:panelGrid>
+		</h:form>
+	</rich:modalPanel>
+	<h:form>
+		<h:panelGrid id="input">
+			<h:outputText value="Name: #{nameModalPanelBean.name}" />
+			<h:outputLink value="#" id="link">
+			Launch wizard
+			<rich:componentControl for="modalPanel" attachTo="link" operation="show"
+					event="onclick" />
+			</h:outputLink>
+		</h:panelGrid>
+	</h:form>
+
+	<input type="text" />
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head></head>
+
+<body>
+<h:form>
+	<rich:panel>
+		<f:facet name="header">Partial update</f:facet>
+		<rich:dataGrid value="#{user.userList}" var="theUser" columns="4"
+			border="1" ajaxKeys="#{user.rowsToUpdate}">
+			<h:panelGrid id="userinfo">
+				<h:outputText value="#{theUser.name}" id="userName"/>
+				<h:outputText value="#{theUser.email}" />
+				<a4j:commandLink value="edit"
+					onclick="#{rich:component('modalPanel')}.show()"
+					reRender="edituserinfo">
+					<f:setPropertyActionListener value="#{theUser}"
+						target="#{user.selectedUser}" />
+				</a4j:commandLink>
+			</h:panelGrid>
+		</rich:dataGrid>
+	</rich:panel>
+</h:form>
+
+
+<rich:modalPanel id="modalPanel">
+	<f:facet name="header">Edit</f:facet>
+<!-- 	<a4j:keepAlive beanName="user" /> -->
+	<h:form>
+		<h:panelGrid id="edituserinfo" columns="2">
+			<h:outputText value="Name:" />
+			<h:inputText value="#{user.selectedUser.name}" />
+			<h:outputText value="Email" />
+			<h:inputText value="#{user.selectedUser.email}" />
+		</h:panelGrid>
+		<h:panelGrid columns="2">
+			<a href="#" onclick="#{rich:component('modalPanel')}.hide()" >Close</a>
+			<a4j:commandLink value="Save" actionListener="#{user.updateUser}"
+				oncomplete="#{rich:component('modalPanel')}.hide()"
+				reRender="userinfo" />
+		</h:panelGrid>
+	</h:form>
+</rich:modalPanel>
+</body>
+</html>

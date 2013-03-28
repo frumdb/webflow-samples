@@ -1,0 +1,45 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	<rich:panel style="width:450px">
+		<f:facet name="header">
+		Using a4j:panelMenu
+		</f:facet>
+		<rich:panelMenu mode="ajax" iconCollapsedGroup="disc" expandSingle="true">
+			<rich:panelMenuGroup label="Group 1">
+				<rich:panelMenuItem disabled="true">
+				Item 1.1
+				</rich:panelMenuItem>
+				<rich:panelMenuItem>
+				Item 1.2
+				</rich:panelMenuItem>
+				<rich:panelMenuItem>
+				Item 1.3
+				</rich:panelMenuItem>
+				<rich:panelMenuGroup label="Group 1.4" expandMode="ajax">
+					<rich:panelMenuItem>
+					Item 1.4.1
+					</rich:panelMenuItem>
+					<rich:panelMenuItem>
+					Item 1.4.2
+					</rich:panelMenuItem>
+					<rich:panelMenuGroup label="Group 1.4.3">
+						<rich:panelMenuItem>
+						Item 1.4.3.1
+						</rich:panelMenuItem>
+					</rich:panelMenuGroup>
+				</rich:panelMenuGroup>
+			</rich:panelMenuGroup>
+			<rich:panelMenuGroup label="Group 2">
+				<rich:panelMenuItem>
+				Item 2.1
+				</rich:panelMenuItem>
+			</rich:panelMenuGroup>
+		</rich:panelMenu>
+	</rich:panel>
+
+</h:form>

@@ -1,0 +1,30 @@
+<h:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	<rich:panel style="width:550px">
+		<f:facet name="header">
+		Using a4j:panelBar
+		</f:facet>
+		<rich:panelBar selectedPanel="sf">
+			<rich:panelBarItem id="nyc" label="New York">
+				Statue of Liberty
+			</rich:panelBarItem>
+			<rich:panelBarItem id="sf">
+				<f:facet name="label">
+				San Francisco
+				</f:facet>
+				Golden Gate Bridge
+			</rich:panelBarItem>
+			<rich:panelBarItem id="la">
+				<f:facet name="label">
+				Los Angeles
+				</f:facet>
+				Hollywood
+			</rich:panelBarItem>
+		</rich:panelBar>
+	</rich:panel>
+</h:form>
