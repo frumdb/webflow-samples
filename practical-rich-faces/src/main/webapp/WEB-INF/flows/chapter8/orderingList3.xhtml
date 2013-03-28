@@ -19,7 +19,9 @@
 				<h:panelGroup>
 					<rich:orderingList id="list"
 						value="#{worldWondersBean.ancientWonders}" var="wonder"
-						listWidth="350" converter="wonderConverter">
+						listWidth="350" converter="#{worldWondersBean.converter}"
+						selection="#{worldWondersBean.selected}">
+						<a4j:support event="onorderchanged" reRender="wonderList"/>
 						<f:facet name="caption">
 						7 Wonders of the Ancient World
 						</f:facet>

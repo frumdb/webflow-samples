@@ -3,11 +3,39 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 	
-	<view-state id="orderingList">
-		<var name="statesBean" class="common.StateBean"/>
-		<var name="airlinesBean" class="common.AirlinesBean"/>
-		<var name="user" class="chapter7.UserBean"/>
-		<var name="pickList" class="chapter8.PickList"/>
-	</view-state>
+<!-- 	<view-state id="orderingList2"> -->
+<!-- 		<var name="worldWondersBean" class="chapter8.WorldWondersBean2"/> -->
+<!-- 	</view-state> -->
 
+
+<!-- 	<view-state id="orderingList"> -->
+<!-- 		<var name="worldWondersBean" class="chapter8.WorldWondersBean"/> -->
+<!-- 	</view-state> -->
+
+<!-- 	<view-state id="orderingListString"> -->
+<!-- 		<var name="worldWondersBean" class="chapter8.StringWondersBean"/> -->
+<!-- 	</view-state> -->
+
+<!-- 	<view-state id="orderingListString2"> -->
+<!-- 		<var name="worldWondersBean" class="chapter8.StringWondersBean2"/> -->
+<!-- 	</view-state> -->
+
+<!-- 	<view-state id="orderingListString2"> -->
+<!-- 		<var name="worldWondersBean" class="chapter8.StringWondersBean2"/> -->
+<!-- 	</view-state> -->
+	
+<!-- 	<view-state id="orderingList3"> -->
+<!-- 		<var name="worldWondersBean" class="chapter8.WorldWondersBean3"/> -->
+<!-- 	</view-state>	 -->
+	
+
+<!-- 	<view-state id="listShuttle"> -->
+<!-- 		<var name="airBean" class="chapter8.AirlinesBean"/> -->
+<!-- 	</view-state>	 -->
+
+	<view-state id="listShuttle2">
+		<var name="airBean" class="chapter8.AirlinesBean2"/>
+	</view-state>	
+
+	
 </flow>

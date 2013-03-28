@@ -12,6 +12,19 @@
 		<phase-listener>com.max.katz.PhaseListener</phase-listener>
 	</lifecycle>
 
+
+	<converter>
+		<converter-id>wonderConverter</converter-id>
+		<converter-class>chapter8.WonderConverter</converter-class>
+	</converter>
+
+	<converter>
+		<converter-id>airlineConverter</converter-id>
+		<converter-class>chapter8.AirlineConverter</converter-class>
+	</converter>
+
+
+
  <managed-bean>
   <managed-bean-name>airlinesBean</managed-bean-name>
   <managed-bean-class>common.AirlinesBean</managed-bean-class>
@@ -25,34 +38,6 @@
 <!--  </managed-bean> -->
 
 
-	<navigation-rule>
-		<from-view-id>/step1.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>forward</from-outcome>
-			<to-view-id>/step2.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<from-view-id>/step2.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>forward</from-outcome>
-			<to-view-id>/step3.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>back</from-outcome>
-			<to-view-id>/step1.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<from-view-id>/step3.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>back</from-outcome>
-			<to-view-id>/step2.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	
-	
-	
 	
 	
 </faces-config>
