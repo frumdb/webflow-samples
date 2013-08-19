@@ -1,5 +1,6 @@
 package org.springframework.webflow.samples.booking;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -42,5 +43,7 @@ public interface BookingService {
      * @param id the booking id
      */
     public void cancelBooking(Booking booking);
+
+	byte[] loadHugeFile() throws IOException;
 
 }

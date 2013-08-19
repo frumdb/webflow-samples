@@ -1,14 +1,19 @@
 package org.springframework.webflow.samples.booking;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+
+import com.google.common.io.ByteStreams;
 
 /**
  * A JPA-based implementation of the Booking Service. Delegates to a JPA entity manager to issue data access calls
@@ -26,9 +31,19 @@ public class JpaBookingService implements BookingService {
 	this.em = em;
     }
 
+    @Override
+    public byte[] loadHugeFile() throws IOException{
+    	ClassPathResource cpr = new ClassPathResource("huge-file");
+		InputStream inputStream = cpr.getInputStream();
+		byte[] bytes = ByteStreams.toByteArray(inputStream);
+		return bytes;
+    }
+    
+    
     @Transactional(readOnly = true)
     @SuppressWarnings("unchecked")
     public List<Booking> findBookings(String username) {
+    	
 	if (username != null) {
 	    return em.createQuery("select b from Booking b where b.user.username = :username order by b.checkinDate")
 		    .setParameter("username", username).getResultList();

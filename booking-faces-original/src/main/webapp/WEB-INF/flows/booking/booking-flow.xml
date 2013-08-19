@@ -5,7 +5,7 @@
 
 	<secured attributes="ROLE_USER" />
 
-	<persistence-context/>
+
 	
 	<input name="hotelId" required="true" />
 
@@ -14,17 +14,14 @@
 	</on-start>
 	
 	<view-state id="enterBookingDetails" model="booking">
-		<transition on="proceed" to="reviewBooking" />
-		<transition on="cancel" to="bookingCancelled" bind="false" />
+		<transition on="cancel" to="nextflow" />
 	</view-state>
 	
-	<view-state id="reviewBooking">
-		<transition on="confirm" to="bookingConfirmed" />
-		<transition on="revise" to="enterBookingDetails" />
-		<transition on="cancel" to="bookingCancelled" />
-	</view-state>
-	
-	<end-state id="bookingConfirmed" commit="true" />
+	<subflow-state id="nextflow" subflow="flow1">
+		<input name="hotelId" value="hotelId" />
+		<transition on="finish" to="bookingCancelled" />
+	</subflow-state>
+
 
 	<end-state id="bookingCancelled" />
 		
