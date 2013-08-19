@@ -14,6 +14,9 @@
 	
 	
 	<view-state id="enterBookingDetails" model="booking">
+<!-- 		<on-entry> -->
+<!-- 			<evaluate expression="bookingService.loadHugeFile()" result="flowScope.byteArray"/> -->
+<!-- 		</on-entry> -->
 		<transition on="cancel" to="nextflow" />
 	</view-state>
 	

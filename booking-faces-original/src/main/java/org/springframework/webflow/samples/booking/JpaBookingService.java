@@ -33,10 +33,18 @@ public class JpaBookingService implements BookingService {
 
     @Override
     public byte[] loadHugeFile() throws IOException{
-    	ClassPathResource cpr = new ClassPathResource("huge-file");
-		InputStream inputStream = cpr.getInputStream();
-		byte[] bytes = ByteStreams.toByteArray(inputStream);
-		return bytes;
+//    	ClassPathResource cpr = new ClassPathResource("huge-file");
+//		InputStream inputStream = cpr.getInputStream();
+//		byte[] bytes = ByteStreams.toByteArray(inputStream);
+    	
+    	String string = "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789";
+    	StringBuilder stringBuilder = new StringBuilder();
+    	for(int i=0;i<1000;i++){//10Gb
+    		stringBuilder.append(string);
+    	}
+		byte[] bytes = stringBuilder.toString().getBytes("UTF-8");
+		System.out.println(bytes.length);
+		return bytes ;
     }
     
     

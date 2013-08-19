@@ -17,10 +17,10 @@
 		<transition on="cancel"  />
 	</view-state>
 	
-	<subflow-state id="nextflow" subflow="flow32">
-		<input name="hotelId" value="hotelId" />
-		<!-- 		<transition on="finish" to="finish" /> -->
-	</subflow-state>
+<!-- 	<subflow-state id="nextflow" subflow="flow32"> -->
+<!-- 		<input name="hotelId" value="hotelId" /> -->
+<!-- 		 		<transition on="finish" to="finish" />  -->
+<!-- 	</subflow-state> -->
 	
 	
 	<!-- 	<end-state id="finish" /> -->
