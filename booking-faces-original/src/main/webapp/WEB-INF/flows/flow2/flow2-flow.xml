@@ -19,9 +19,9 @@
 	
 	<subflow-state id="nextflow" subflow="flow20">
 		<input name="hotelId" value="hotelId" />
-		<!-- 		<transition on="finish" to="finish" /> -->
+		<transition on="finish" to="finish" />
 	</subflow-state>
 	
-	<!-- 	<end-state id="finish" /> -->
+	<end-state id="finish" />
 		
 </flow>

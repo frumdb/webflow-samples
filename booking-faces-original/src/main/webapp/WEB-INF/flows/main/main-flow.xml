@@ -47,8 +47,8 @@
 
 	<subflow-state id="bookHotel" subflow="booking">
 		<input name="hotelId" value="hotel.id" />
-<!-- 		<transition on="bookingConfirmed" to="finish" /> -->
-		<transition on="bookingCancelled" to="enterSearchCriteria" />
+		<transition on="bookingConfirmed" to="finish" />
+		<transition on="bookingCancelled" to="finish" />
 	</subflow-state>
 
 	<view-state id="changeSearchCriteria" view="enterSearchCriteria.xhtml" popup="true">
@@ -60,6 +60,6 @@
 		</transition>
 	</view-state>
 			
-<!-- 	<end-state id="finish" /> -->
+<end-state id="finish" />
 	
 </flow>
